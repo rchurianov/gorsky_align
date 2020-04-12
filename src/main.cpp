@@ -15,6 +15,7 @@ using std::numeric_limits;
 #include "io.h"
 #include "matrix.h"
 #include "gaussian.h"
+#include "gaussian_separable.h"
 
 void print_help(const char *argv0)
 {
@@ -163,7 +164,7 @@ int main(int argc, char **argv)
             if (action == "--gaussian") {
                 dst_image = gaussian(src_image, sigma, radius);
             } else {
-                // dst_image = gaussian_separable(src_image, sigma, radius);
+                dst_image = gaussian_separable(src_image, sigma, radius);
             }
         } else if (action == "--canny") {
             check_argc(6, 6);

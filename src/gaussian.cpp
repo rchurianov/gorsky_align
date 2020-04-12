@@ -3,11 +3,15 @@
 #include <vector>
 #include <cmath>
 #include <tuple>
+// #include <iostream>
+// #include <iomanip>
 
 using std::vector;
 using std::tuple;
 using std::tie;
 using std::make_tuple;
+
+// using namespace std;
 
 const double SIGMA = 1.4;
 const double RADIUS = 2;
@@ -133,6 +137,7 @@ public:
         return int_kernel;
     }
 
+
     unsigned int get_norm_factor(const vector<unsigned int> int_kernel) {
         unsigned int sum = 0;
         for (unsigned int i : int_kernel) {
@@ -164,12 +169,15 @@ Image gaussian(const Image& src_image, double sigma, int radius) {
     return dst_image;
 }
 
+
 /*
 int main() {
 
+    GaussianFilterOp op;
+
     int number_of_elements = (2 * RADIUS + 1) * (2 * RADIUS + 1);
     vector<double> kernel_2d(number_of_elements);
-    kernel_2d = gaussian_kernel_2d(SIGMA, RADIUS);
+    kernel_2d = op.gaussian_kernel_2d(SIGMA, RADIUS);
 
     cout << "2D Gaussian Kernel with Sigma = " << SIGMA << " Radius = " << RADIUS << endl;
 
@@ -184,14 +192,37 @@ int main() {
 
     cout << endl;
     cout << "Integer Kernel:" << endl;
-    vector<int> int_kernel_2d;
-    int_kernel_2d = get_integer_kernel_2d(kernel_2d);
+    vector<unsigned int> int_kernel_2d;
+    int_kernel_2d = op.get_integer_kernel_2d(kernel_2d);
     for (int i = 0; i < 2 * RADIUS + 1; i++) {
         for (int j = 0; j < 2 * RADIUS + 1; j++) {
             cout << setw(2) << int_kernel_2d[i * shift + j] << " ";
         }
         cout << endl;
     }
+
+    cout << endl;
+
+    int n = 2 * RADIUS + 1;
+    vector<double> kernel_1d(n);
+    kernel_1d = op.gaussian_kernel_1d(SIGMA, RADIUS);
+
+    cout << "1-D Gaussian Kernel with Sigma = " << SIGMA << " Radius = " << RADIUS << endl;
+
+    cout << setprecision(6) << fixed << setw(8);
+    for (double d : kernel_1d) {
+        cout << d << " ";
+    }
+    cout << endl;
+
+    cout << endl;
+    cout << "Integer kernel:" << endl;
+    vector<unsigned int> int_kernel_1d;
+    int_kernel_1d = op.get_integer_kernel_1d(kernel_1d);
+    for (unsigned int i : int_kernel_1d) {
+        cout << i << " ";
+    }
+    cout << endl;
 
     return 0;
 }
