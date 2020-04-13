@@ -99,7 +99,7 @@ public:
 };
 
 Image gaussian_separable(const Image& src_image, double sigma, int radius) {
-    Image dst_image;
+    // Image dst_image;
     GaussianSeparableFilterOp op;
     op.radius = radius;
 
@@ -108,7 +108,7 @@ Image gaussian_separable(const Image& src_image, double sigma, int radius) {
     op.kernel = op.get_integer_kernel_1d(d_kernel);
     op.norm_factor = op.get_norm_factor(op.kernel);
 
-    dst_image = src_image.unary_map(op);
+    // dst_image = src_image.unary_map(op);
 
-    return dst_image;
+    return src_image.unary_map(op);
 }

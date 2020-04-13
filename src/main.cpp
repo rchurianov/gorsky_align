@@ -18,6 +18,7 @@ using std::numeric_limits;
 #include "gaussian_separable.h"
 #include "sobel_x.h"
 #include "sobel_y.h"
+#include "canny.h"
 
 void print_help(const char *argv0)
 {
@@ -176,7 +177,7 @@ int main(int argc, char **argv)
             check_number("threshold2", threshold2, 0, 360);
             if (threshold1 >= threshold2)
                 throw string("threshold1 must be less than threshold2");
-            // dst_image = canny(src_image, threshold1, threshold2);
+            dst_image = canny(src_image, threshold1, threshold2);
         } else if (action == "--align") {
             check_argc(argc, 4, 6);
             if (argc == 5) {
