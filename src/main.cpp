@@ -17,6 +17,7 @@ using std::numeric_limits;
 #include "gaussian.h"
 #include "gaussian_separable.h"
 #include "sobel_x.h"
+#include "sobel_y.h"
 
 void print_help(const char *argv0)
 {
@@ -120,7 +121,7 @@ int main(int argc, char **argv)
             dst_image = sobel_x(src_image);
         } else if (action == "--sobel-y") {
             check_argc(argc, 4, 4);
-            // dst_image = sobel_y(src_image);
+            dst_image = sobel_y(src_image);
         } else if (action == "--unsharp") {
             check_argc(argc, 4, 4);
             // dst_image = unsharp(src_image);
