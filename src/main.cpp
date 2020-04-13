@@ -16,6 +16,7 @@ using std::numeric_limits;
 #include "matrix.h"
 #include "gaussian.h"
 #include "gaussian_separable.h"
+#include "sobel_x.h"
 
 void print_help(const char *argv0)
 {
@@ -116,7 +117,7 @@ int main(int argc, char **argv)
 
         if (action == "--sobel-x") {
             check_argc(argc, 4, 4);
-            // dst_image = sobel_x(src_image);
+            dst_image = sobel_x(src_image);
         } else if (action == "--sobel-y") {
             check_argc(argc, 4, 4);
             // dst_image = sobel_y(src_image);
