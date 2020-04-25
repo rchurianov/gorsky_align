@@ -8,6 +8,9 @@
 #include <string>
 #include <type_traits>
 
+using std::tuple;
+using std::tie;
+
 typedef unsigned int uint;
 
 template<typename ValueT>
@@ -132,6 +135,13 @@ private:
     // Const cast for writing public const fields.
     template<typename T> inline T& make_rw(const T& val) const;
 };
+
+template<typename ValueT>
+std::ostream& operator<< (std::ostream& os, const std::tuple<ValueT, ValueT, ValueT>& t) {
+    ValueT r, g, b;
+    std::tie(r, g, b) = t;
+    return os << r; // will output only red for now
+}
 
 // Output for matrix. Useful for debugging
 template<typename ValueT>
