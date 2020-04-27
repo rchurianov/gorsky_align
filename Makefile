@@ -77,7 +77,7 @@ bridge.touch: $(wildcard $(BRIDGE_INCLUDE_DIR)/*) \
 $(BIN_DIR)/matrix_example: $(OBJ_DIR)/matrix_example.o $(OBJ_DIR)/io.o bridge.touch
 	$(CXX) $(CXXFLAGS) $(filter %.o, $^) -o $@ $(LDFLAGS)
 
-$(BIN_DIR)/main: $(OBJ_DIR)/main.o $(OBJ_DIR)/io.o $(OBJ_DIR)/gaussian.o $(OBJ_DIR)/gaussian_separable.o $(OBJ_DIR)/sobel_x.o $(OBJ_DIR)/sobel_y.o $(OBJ_DIR)/canny.o bridge.touch
+$(BIN_DIR)/main: $(OBJ_DIR)/main.o $(OBJ_DIR)/io.o $(OBJ_DIR)/gaussian.o $(OBJ_DIR)/gaussian_separable.o $(OBJ_DIR)/sobel_x.o $(OBJ_DIR)/sobel_y.o $(OBJ_DIR)/canny.o $(OBJ_DIR)/align.o bridge.touch
 	$(CXX) $(CXXFLAGS) $(filter %.o, $^) -o $@ $(LDFLAGS)
 
 # Pattern for generating dependency description files (*.d)

@@ -19,6 +19,7 @@ using std::numeric_limits;
 #include "sobel_x.h"
 #include "sobel_y.h"
 #include "canny.h"
+#include "align.h"
 
 void print_help(const char *argv0)
 {
@@ -197,7 +198,7 @@ int main(int argc, char **argv)
                     throw string("unknown align option ") + postprocessing;
                 }
             } else {
-                // dst_image = align(src_image);
+                dst_image = align(src_image);
             }
         } else {
             throw string("unknown action ") + action;

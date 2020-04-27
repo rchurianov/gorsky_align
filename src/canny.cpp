@@ -45,9 +45,9 @@ Image modulus(const Image& x_grad, const Image& y_grad) {
         for (uint j = 0; j < end_j; j++) {
             tie(r_x, g_x, b_x) = x_grad(i, j);
             tie(r_y, g_y, b_y) = y_grad(i, j);
-            mod_r = sqrt(r_x*r_x + r_y*r_y);
-            mod_g = sqrt(g_x*g_x + g_y*g_y);
-            mod_b = sqrt(b_x*b_x + b_y*b_y);
+            mod_r = round(sqrt(r_x*r_x + r_y*r_y));
+            mod_g = round(sqrt(g_x*g_x + g_y*g_y));
+            mod_b = round(sqrt(b_x*b_x + b_y*b_y));
             dst_image(i, j) = make_tuple(mod_r, mod_g, mod_b);
         }
     }
@@ -102,7 +102,7 @@ pair<int, int> get_opposite_direction(const pair<int, int> direction) {
     vector<pair<int, int>> plus_shift = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}};
     vector<pair<int, int>> minus_shift = {{1, -1}, {0, -1}, {-1, -1}, {-1, 0}};
 
-    pair<int, int> opposite;
+    pair<int, int> opposite = {0, 0};
 
     if (direction.first != 0) {
         opposite.first = - direction.first;
@@ -361,7 +361,7 @@ Image thresholding(const Image& gradient, uint threshold1, uint threshold2) {
     uint radius = 1;
     vector<pair<uint, uint>> shift = {{0,1}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
-    cout << "thresholding: n x m " << gradient.n_rows << " " << gradient.n_cols << endl;
+    // cout << "thresholding: n x m " << gradient.n_rows << " " << gradient.n_cols << endl;
 
     Image edge_map(gradient.n_rows, gradient.n_cols);
 
@@ -420,6 +420,7 @@ Image canny(const Image& src_image, uint threshold1, uint threshold2) {
     Image suppressed = nonmaximum_suppresion(gradient, direction);
     Image edge_map = thresholding(suppressed, threshold1, threshold2);
     return edge_map;
+    // return y_derivative;
     // return suppressed;
     // return gradient;
 }
