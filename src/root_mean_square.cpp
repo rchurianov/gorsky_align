@@ -1,5 +1,5 @@
-#pragma once
 
+#include "root_mean_square.h"
 #include <vector>
 #include <cmath>
 #include <tuple>
@@ -16,7 +16,7 @@ using std::pair;
 using std::cout;
 using std::endl;
 
-double root_mean_square(const Image& image_1, consts Image& image_2) {
+double root_mean_square(const Image& image_1, const Image& image_2) {
     uint r1, g1, b1, r2, g2, b2;
     double rms = 0.0, tmp_sum = 0.0;
     int min_height = image_1.n_rows > image_2.n_rows ? image_2.n_rows : image_1.n_rows;

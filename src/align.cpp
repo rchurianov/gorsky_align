@@ -1,6 +1,7 @@
 
 #include "align.h"
 #include "canny.h"
+#include "root_mean_square.h"
 
 #include <vector>
 #include <cmath>
