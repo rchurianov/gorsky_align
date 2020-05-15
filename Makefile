@@ -84,7 +84,9 @@ $(BIN_DIR)/main: $(OBJ_DIR)/main.o $(OBJ_DIR)/io.o \
 				 $(OBJ_DIR)/sobel_y.o \
 				 $(OBJ_DIR)/canny.o \
 				 $(OBJ_DIR)/align.o \
-				 $(OBJ_DIR)/root_mean_square.o bridge.touch
+				 $(OBJ_DIR)/cross_correlation.o \
+				 $(OBJ_DIR)/root_mean_square.o \
+				 $(OBJ_DIR)/pyramid.o bridge.touch
 	$(CXX) $(CXXFLAGS) $(filter %.o, $^) -o $@ $(LDFLAGS)
 
 # Pattern for generating dependency description files (*.d)
