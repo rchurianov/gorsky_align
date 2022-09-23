@@ -36,3 +36,5 @@ chmod +x ./build/bin/main
 chmod +x ./batch_run.sh
 ````
 Выполнить программу на нескольких файлах проще всего с помощью команды `./batch_run.sh`
+
+Файлы, добавленные к авторскому каркасу: align.cpp canny.cpp cross_correlation.cpp gaussian_separable.cpp gaussian.cpp pyramid.cpp root_mean_square.cpp sobel_x.cpp sobel_y.cpp
