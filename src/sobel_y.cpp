@@ -1,6 +1,6 @@
 #include "sobel_y.h"
 #include <vector>
-#include <cmath>
+// #include <cmath>
 #include <tuple>
 
 using std::vector;

@@ -1,7 +1,7 @@
 
 #include "sobel_x.h"
 #include <vector>
-#include <cmath>
+// #include <cmath>
 #include <tuple>
 
 using std::vector;

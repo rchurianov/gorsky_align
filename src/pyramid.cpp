@@ -14,9 +14,9 @@ uint interpolated_value(uint f11, uint f12, uint f21, uint f22)
 
 Image scale_down(const Image& src_image) {
 
-    cout << "original image " << src_image.n_rows << " x " << src_image.n_cols << endl;
+    // cout << "original image " << src_image.n_rows << " x " << src_image.n_cols << endl;
     Image scaled_down(src_image.n_rows/2, src_image.n_cols/2);
-    cout << "scaled_down h x w " << scaled_down.n_rows << " " << scaled_down.n_cols << endl;
+    // cout << "scaled_down h x w " << scaled_down.n_rows << " " << scaled_down.n_cols << endl;
 
     uint r1, g1, b1, r2, g2, b2, r3, g3, b3, r4, g4, b4;
     uint new_r, new_g, new_b;

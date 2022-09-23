@@ -10,6 +10,8 @@
 
 using std::tuple;
 using std::tie;
+using std::cout;
+using std::endl;
 
 typedef unsigned int uint;
 
@@ -102,10 +104,10 @@ public:
     //
     // This function isn't implemented, if you understood unary_map, using its
     // code you can easily implement binary_map.
-    template<typename BinaryMatrixOperator>
-    friend Matrix<ValueT> binary_map(const BinaryMatrixOperator&,
-                                     const Matrix<ValueT>&,
-                                     const Matrix<ValueT>&);
+    template<typename T, typename BinaryMatrixOperator>
+    friend Matrix<T> binary_map(const BinaryMatrixOperator&,
+                                     const Matrix<T>&,
+                                     const Matrix<T>&);
 
     // Get sumbmatrix of matrix
     // Remember that indexing starts at 0!

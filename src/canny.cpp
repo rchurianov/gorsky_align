@@ -55,7 +55,8 @@ Image modulus(const Image& x_grad, const Image& y_grad) {
     return dst_image;
 }
 
-Matrix<std::tuple<double, double, double>> grad_direction(const Image& x_grad, const Image& y_grad) {
+Matrix<std::tuple<double, double, double>> grad_direction(const Image& x_grad, const Image& y_grad)
+{
     Matrix<std::tuple<double, double, double>> dst_image(x_grad.n_rows, x_grad.n_cols);
 
     uint r_x, g_x, b_x, r_y, g_y, b_y;

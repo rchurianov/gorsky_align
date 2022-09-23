@@ -230,3 +230,48 @@ Matrix<ValueT>::unary_map(UnaryMatrixOperator &op) const
     }
     return tmp;
 }
+
+/*
+A friend function is a non-member global function that has access to
+to private class fields.
+*/
+
+// template<typename BinaryMatrixOperator>
+template<typename T, typename BinaryMatrixOperator>
+Matrix<T> binary_map(const BinaryMatrixOperator& op, // class instance with () operator overloaded
+                          const Matrix<T>& left,
+                          const Matrix<T>& right)
+{
+    // cout << "Left " << left.n_rows << "x" << left.n_cols << endl;
+    // cout << "Right " << right.n_rows << "x" << right.n_cols << endl;
+
+    if (left.n_cols * left.n_rows == 0 ||
+        right.n_cols * right.n_rows == 0)
+        return Matrix<T>(0, 0);
+
+    if (left.n_cols != right.n_cols ||
+        left.n_rows != right.n_rows)
+        return Matrix<T>(0, 0);
+
+    Matrix<T> result(left.n_rows, left.n_cols);
+    // cout << "result " << result.n_rows << "x" << result.n_cols << endl;
+
+    const auto radius = op.radius;
+    const auto size = 2 * radius + 1;
+
+    uint start_i = radius;
+    uint end_i = left.n_rows - radius;
+    uint start_j = radius;
+    uint end_j = left.n_cols - radius;
+
+    for (uint i = start_i; i < end_i; ++i) {
+        for (uint j = start_j; j < end_j; ++j) {
+            auto left_neigh = left.submatrix(i - radius, j - radius, size, size);
+            auto right_neigh = right.submatrix(i - radius, j - radius, size, size);
+            result(i, j) = op(left_neigh, right_neigh);
+            // cout << result(i, j) << " ";
+        }
+    }
+
+    return result;
+}

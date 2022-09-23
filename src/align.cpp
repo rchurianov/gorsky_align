@@ -516,8 +516,8 @@ Image align(const Image& src_image) {
     int min_i=0, min_j=0;
     std::tie(min_i, min_j) = get_minimal_shifts(small_blue, small_green, -15, 15, -15, 15);
 
-    cout << "min i shift " << min_i << endl;
-    cout << "min j shift " << min_j << endl;
+    // cout << "min i shift " << min_i << endl;
+    // cout << "min j shift " << min_j << endl;
 
     int small_b_g_shift_i = min_i;
     int small_b_g_shift_j = min_j;
@@ -554,9 +554,9 @@ Image align(const Image& src_image) {
     int small_r_b_shift_i = min_i;
     int small_r_b_shift_j = min_j;
 
-    cout << "small red shifts" << endl;
-    cout << "min i shift " << min_i << endl;
-    cout << "min j shift " << min_j << endl;
+    // cout << "small red shifts" << endl;
+    // cout << "min i shift " << min_i << endl;
+    // cout << "min j shift " << min_j << endl;
 
     /*
     if (min_i >= 0 && min_j <= 0) {
@@ -592,9 +592,9 @@ Image align(const Image& src_image) {
 
     std::tie(min_i, min_j) = get_minimal_shifts(blue_wo_borders, green_wo_borders, start_i, end_i, start_j, end_j);
 
-    cout << "blue green shift" << endl;
-    cout << "min i shift " << min_i << endl;
-    cout << "min j shift " << min_j << endl;
+    // cout << "blue green shift" << endl;
+    // cout << "min i shift " << min_i << endl;
+    // cout << "min j shift " << min_j << endl;
 
     if (min_i >= 0 && min_j <= 0) {
         new_height = green_wo_borders.n_rows <= abs(min_i) + 1 + blue_wo_borders.n_rows ? abs(min_i) + 1 + blue_wo_borders.n_rows : green_wo_borders.n_rows;
@@ -623,9 +623,9 @@ Image align(const Image& src_image) {
 
     std::tie(min_i, min_j) = get_minimal_shifts(big_blue_green_match, red_wo_borders, start_i, end_i, start_j, end_j);
 
-    cout << "red shifts" << endl;
-    cout << "min i shift " << min_i << endl;
-    cout << "min j shift " << min_j << endl;
+    // cout << "red shifts" << endl;
+    // cout << "min i shift " << min_i << endl;
+    // cout << "min j shift " << min_j << endl;
 
     // new_height = big_blue_green_match.n_rows > red_wo_borders.n_rows ? red_wo_borders.n_rows : big_blue_green_match.n_rows;
     // new_width = big_blue_green_match.n_cols > red_wo_borders.n_cols ? red_wo_borders.n_cols : big_blue_green_match.n_cols;

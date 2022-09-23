@@ -115,6 +115,7 @@ int main(int argc, char **argv)
 
         check_argc(argc, 4);
         Image src_image = load_image(argv[1]), dst_image;
+        std::cout << string(argv[1]) << std::endl;
 
         string action(argv[3]);
 

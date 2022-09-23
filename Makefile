@@ -19,7 +19,7 @@ BIN_DIR = $(BUILD_DIR)/bin
 DEP_DIR = $(BUILD_DIR)/deps
 
 # Bridge - place for main project to pull headers and compiled libraries.
-# Headers must be placed into BRIDGE_LIBRARY_DIR before dependency generation
+# Headers must be placed into BRIDGE_INCLUDE_DIR before dependency generation
 # proceed. Libraries in BRIDGE_LIBRARY_DIR will be required on linkage step.
 BRIDGE_MAKE = bridge/Makefile
 BRIDGE_INCLUDE_DIR = bridge/include
